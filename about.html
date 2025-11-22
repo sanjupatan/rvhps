@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — RVH Placement Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+:root{
+  --bg-dark:#07111f;
+  --accent:#ff6a00;
+  --accent2:#44dde8;
+  --muted:#98a0b3;
+  --glass:rgba(255,255,255,0.06);
+  --card-bg:rgba(255,255,255,0.04);
+  --max-width:1200px;
+}
+
+body{
+  background:#07111f;
+  font-family:"Inter",sans-serif;
+  color:#e9eef8;
+  overflow-x:hidden;
+}
+:root{
+  --accent: #ff6a00;
+  --accent-2: #44dde8;
+  --muted: #98a0b3;
+}
+
+:root{
+  --accent: #ff6a00;
+  --accent-2: #44dde8;
+}
+
+.navbar{
+  position:fixed; inset:0 auto auto 0; z-index:9999;
+  width:100%; display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(18px,3vw,38px);
+  backdrop-filter: blur(8px);
+  padding: 26px 0px !important;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo{display:flex;align-items:center;gap:12px;}
+.mark{
+  width:52px;height:52px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),#e68b3a);
+  display:grid;place-items:center;font-weight:900;color:#0b1220;
+}
+.brand{font-size:20px;font-weight:700;color:#fff;}
+
+.navbar-menu{
+  display:flex;gap:26px;align-items:center;
+}
+.navbar-menu a{
+  color:#e9f1ff;text-decoration:none;font-weight:600;font-size:15px;
+  padding:10px 6px;position:relative;transition:.28s;
+}
+.navbar-menu a::after{
+  content:""; position:absolute; left:0; bottom:4px;
+  height:2px; width:0; background:var(--accent-2);
+  transition:width .28s ease;
+}
+.navbar-menu a:hover::after{width:100%}
+
+.cta-nav{
+  padding:10px 18px;border-radius:12px;
+  background:linear-gradient(90deg,var(--accent-2),#8ef0e9);
+  color:#000;font-weight:700;text-decoration:none;
+}
+
+.hamburger{display:none;cursor:pointer;padding:8px;}
+.hamburger .bar{
+  width:26px;height:2px;background:#fff;margin:5px 0;
+  transition:.25s;
+}
+
+@media(max-width:900px){
+  .navbar-menu{display:none}
+  .hamburger{display:block}
+}
+
+/* Mobile Menu */
+.mobile-menu{
+  position:fixed; top:0; right:-100%; width:80%;
+  max-width:380px; height:100vh;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(12px);
+  padding:28px; z-index:99995;
+  transition:.35s ease-in-out;
+  display:flex;flex-direction:column;gap:22px;
+}
+.mobile-menu.active{right:0}
+
+.close-btn{
+  font-size:28px;color:white;cursor:pointer;
+}
+
+.overlay{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,0.6);
+  opacity:0; pointer-events:none;
+  transition:.3s;
+}
+.overlay.active{
+  opacity:1; pointer-events:auto;
+}
+
+.about-hero{
+  height:90vh;
+  background:url('aboutvid.mp4.') center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.about-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+.about-hero-content{
+  position:relative;
+  z-index:2;
+  animation:fadeUp 1.4s ease forwards;
+  opacity:0;
+}
+.about-hero-content h1{
+  font-size:60px;
+  font-family:"Playfair Display",serif;
+  margin-bottom:12px;
+}
+.about-hero-content p{
+  font-size:20px;
+  color:#d3d9e7;
+  max-width:800px;
+  margin:auto;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.story{
+  padding:80px 20px;
+}
+.story-container{
+  max-width:var(--max-width);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.story-text h2{
+  font-size:38px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+.story-text p{
+  color:#cfd6e2;
+  line-height:1.7;
+}
+.story-img img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.mvv{
+  padding:80px 20px;
+  background:linear-gradient(180deg,#0b1627,#0f1d32);
+}
+.mvv-container{
+  max-width:var(--max-width);
+  margin:auto;
+  text-align:center;
+}
+.mvv-container h2{
+  font-size:36px;
+  font-weight:800;
+}
+.mvv-grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:30px;
+}
+.mvv-card{
+  padding:30px;
+  background:rgba(255,255,255,0.06);
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s;
+}
+.mvv-card:hover{
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.1);
+}
+.mvv-card i{
+  font-size:40px;
+  color:var(--accent2);
+  margin-bottom:15px;
+}
+
+.why{
+  padding:80px 20px;
+}
+.why-container{
+  max-width:var(--max-width);
+  margin:auto;
+  text-align:center;
+}
+.why-title{
+  font-size:38px;
+  font-weight:800;
+  margin-bottom:40px;
+}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+.why-card{
+  padding:28px;
+  background:var(--card-bg);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  transition:0.3s;
+}
+.why-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+.why-card i{
+  font-size:35px;
+  margin-bottom:10px;
+  color:var(--accent);
+}
+
+
+
+.stats{
+  padding:70px 20px;
+  text-align:center;
+}
+.stats-container{
+  max-width:var(--max-width);
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  flex-wrap:wrap;
+}
+.stat-item h3{
+  font-size:42px;
+  color:var(--accent2);
+  font-weight:800;
+}
+.stat-item p{
+  color:#d2d8e3;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s cubic-bezier(.2,.7,.3,1);
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+/* ---------------- HERO SECTION (FULL BACKGROUND VIDEO) ---------------- */
+.about-hero {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* VERY IMPORTANT */
+  z-index: 1;
+}
+
+/* Black Shade Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55); /* adjust to make darker/lighter */
+  z-index: 2;
+}
+
+/* Text Content */
+.about-hero-content {
+  position: relative;
+  z-index: 3; /* Above video + overlay */
+  text-align: center;
+  animation: fadeUp 1.4s ease forwards;
+  opacity: 0;
+}
+
+.about-hero-content h1 {
+  font-size: 60px;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.about-hero-content p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: auto;
+  color: #e8edf8;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width:800px){
+  .story-container{grid-template-columns:1fr;}
+  .about-hero-content h1{font-size:42px;}
+}
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="logo" aria-hidden="true">
+    <div class="mark">RVH</div>
+    <div>
+      <div class="brand">RVH Placement</div>
+      <small>Talent. Trust. Tomorrow.</small>
+    </div>
+  </div>
+
+  <div class="navbar-menu" role="menubar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+    <a class="cta-nav" href="#contact">Get Placed</a>
+  </div>
+
+  <div class="hamburger" id="hamburger" aria-controls="mobileMenu" aria-expanded="false">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<aside class="mobile-menu" id="mobileMenu">
+  <div style="display:flex;align-items:center;gap:12px">
+    <h2>Menu</h2>
+    <div style="flex:1"></div>
+    <div class="close-btn" id="closeMenu">&times;</div>
+  </div>
+
+  <nav style="display:flex;flex-direction:column;gap:6px;margin-top:12px">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="#contact" class="cta-nav">Get Placed</a>
+  </nav>
+</aside>
+
+<div class="overlay" id="overlay"></div>
+
+
+<section class="about-hero">
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="aboutvid.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="about-hero-content">
+    <h1>About RVH Placement Services</h1>
+    <p>Your trusted career partner — connecting ambition with opportunity.</p>
+  </div>
+</section>
+
+<section class="story reveal">
+  <div class="story-container">
+    <div class="story-text">
+      <h2>Our Story</h2>
+      <p>RVH Placement Services was founded with a mission to empower individuals with real career opportunities. We bridge the gap between skilled candidates and top employers, ensuring growth, trust, and long-term success.</p>
+      <br>
+      <p>With a strong employer network and expert HR team, we guide thousands of aspirants every year to achieve their dreams.</p>
+    </div>
+
+    <div class="story-img">
+      <img src="about.png" alt="About RVH">
+    </div>
+  </div>
+</section>
+
+<section class="mvv reveal">
+  <div class="mvv-container">
+    <h2>Mission, Vision & Values</h2>
+
+    <div class="mvv-grid">
+      <div class="mvv-card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Our Mission</h3>
+        <p>Empowering talent with modern career tools and verified opportunities.</p>
+      </div>
+
+      <div class="mvv-card">
+        <i class="fas fa-eye"></i>
+        <h3>Our Vision</h3>
+        <p>To become India’s most trusted career development & placement partner.</p>
+      </div>
+
+      <div class="mvv-card">
+        <i class="fas fa-heart"></i>
+        <h3>Our Values</h3>
+        <p>Integrity, transparency, and results-driven hiring support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why reveal">
+  <div class="why-container">
+    <h2 class="why-title">Why We Stand Out</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="fa-solid fa-square-check"></i>
+        <h3>Verified Employers</h3>
+        <p>Every job opportunity is screened and authenticated.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-user-graduate"></i>
+        <h3>Career Guidance</h3>
+        <p>Resume help, mock interviews & growth planning.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>High Success Rate</h3>
+        <p>Thousands of candidates placed successfully.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="stats reveal">
+  <div class="stats-container">
+    <div class="stat-item">
+      <h3>10,000+</h3>
+      <p>Candidates Placed</p>
+    </div>
+
+    <div class="stat-item">
+      <h3>300+</h3>
+      <p>Company Partners</p>
+    </div>
+
+    <div class="stat-item">
+      <h3>5+ Years</h3>
+      <p>Industry Experience</p>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+const overlay = document.getElementById("overlay");
+const closeMenu = document.getElementById("closeMenu");
+
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.add("active");
+  overlay.classList.add("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  mobileMenu.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+  mobileMenu.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Scroll Reveal Animation
+const revealEls = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+  revealEls.forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80){
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+
+
+</script>
+
+</body>
+</html>
